@@ -1,8 +1,7 @@
 ﻿namespace CarList.Models
 {
-    public class CarMart
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
-        public List<Car> Cars { get; set; }
     }
 }
