@@ -8,9 +8,9 @@ namespace CarList.ViewModels
         string? _title;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsLoading))]
+        [NotifyPropertyChangedFor(nameof(IsNotLoading))]
         public static bool isloading;
 
-        public bool IsLoading => !isloading;
+        public bool IsNotLoading => !isloading;
     }
 }

@@ -20,7 +20,7 @@ namespace CarList.ViewModels
         [RelayCommand]
         async Task GetCarList()
         {
-            if (IsLoading) return;
+            if (IsNotLoading) return;
             try
             {
                 isloading = true;
