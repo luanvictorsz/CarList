@@ -31,7 +31,6 @@ namespace CarList.ViewModels
                 {
                     cars.Add(car);
                 }
-
             }   
             catch(Exception ex)
             {
