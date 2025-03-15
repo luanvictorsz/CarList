@@ -1,39 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="CarList.MainPage"
+    x:Class="CarListApp.Maui.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:model="clr-namespace:CarList.Models"
-    xmlns:viewmodel="clr-namespace:CarList.ViewModels"
-    Title="{Binding Title}"
-    x:DataType="viewmodel:CarListViewModel">
-
+    xmlns:model="[model ]clr-namespace:CarList.Models"
+    xmlns:viewmodel="[viewmodel ]clr-namespace:CarList.ViewModels"
+    Title="{Binding Title}">
     <Grid
-        ColumnDefinitions="*,*"
-        ColumnSpacing="5"
-        RowDefinitions="*, Auto">
+        Padding="5"
+        ColumnSpacing="1"
+        RowSpacing="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <CollectionView
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding Cars}"
-            SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Car">
-                    <Frame HeightRequest="90">
-                        <HorizontalStackLayout Padding="10" Spacing="5">
-                            <Label Text="{Binding Make}" />
-                            <Label Text="{Binding Model}" />
-                        </HorizontalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <Button
-            Grid.Row="1"
-            Command="{Binding GetCarListCommand}"
-            IsEnabled="{Binding IsLoading}"
-            Text="Fetch Cars" />
+        <VerticalStackLayout
+            Grid.Row="0"
+            Margin="9"
+            Padding="5">
+            <Entry
+                x:Name="Make"
+                Placeholder="Enter Make"
+                Text="{Binding Make}" />
+            <Entry
+                x:Name="Model"
+                Placeholder="Enter Model"
+                Text="{Binding Model}" />
+            <Entry
+                x:Name="Vin"
+                Placeholder="Enter Vin"
+                Text="{Binding Vin}" />
+        </VerticalStackLayout>
 
     </Grid>
 
